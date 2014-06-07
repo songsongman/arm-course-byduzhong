@@ -19,7 +19,7 @@ _start:
   	bne 1b
 
 @ run in ram
- 	ldr pc, =_start_ram
+ 	ldr pc, _start_ram
 	b   .
 
 _start_ram:
