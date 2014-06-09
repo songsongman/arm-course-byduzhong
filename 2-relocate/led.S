@@ -32,13 +32,22 @@ _led_end:
 	
 
 led_start:
+@ .equ GPJ2CON, 0xE0200280
+@ .equ GPJ2DAT, 0xE0200284
 /* set GPJ2[0,1,2,3] as output */
-        ldr r1, =GPJ2CON
-        ldr r0, =0x00001111
+@       ldr r1, =GPJ2CON
+	mov r1, #0xE0000000
+	orr r1, #0x00200000
+	orr r1, #0x00000280
+
+@       ldr r0, =0x00001111
+	mov r0, #0x00000011
+	orr r0, #0x00001100
         str r0, [r1]
 
-        ldr r1, =GPJ2DAT
-        ldr r0, =0xFFFFFFFA
+@       ldr r1, =GPJ2DAT
+	add r1, #4
+        mov r0, #0xFFFFFFF0
         str r0, [r1]
 
         b   .
