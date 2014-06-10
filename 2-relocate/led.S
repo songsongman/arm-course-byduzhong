@@ -5,7 +5,7 @@
 
 .globl _start
 _start:
-	ldr pc, _led_start
+@	ldr pc, _led_start @ debug
 @	[r1] -> r0 -> [r2]
 	ldr r1, _led_start
 	ldr r2, _start_ram
